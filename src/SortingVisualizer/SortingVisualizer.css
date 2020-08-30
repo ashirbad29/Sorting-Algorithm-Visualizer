@@ -1,15 +1,44 @@
 .visualizeContainer {
-	margin: 0 auto 0 auto;
+	margin: 12vh auto 0 auto;
 	width: fit-content;
 	display: flex;
 	flex-direction: row;
-	border: 1px solid black;
-	align-items: center;
-	align-content: center;
 }
 
 .arrayBar {
 	background-color: pink;
 	width: 4px;
-	margin: auto 1px 100px 1px;
+	margin: auto 1px 0 1px;
+}
+
+.button {
+	display: inline-block;
+	margin: 0;
+	padding: 0.5rem 0.8rem;
+	border: 0;
+	border-radius: 0.317rem;
+	background-color: #1fa3ec;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.button:hover {
+	opacity: 0.85;
+}
+
+.button:active {
+	box-shadow: inset 0 3px 4px hsla(0, 0%, 0%, 0.2);
+}
+
+.button:focus {
+	outline: thin dotted #444;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
 }
