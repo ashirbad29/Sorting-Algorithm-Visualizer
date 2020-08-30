@@ -1,0 +1,15 @@
+.visualizeContainer {
+	margin: 0 auto 0 auto;
+	width: fit-content;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid black;
+	align-items: center;
+	align-content: center;
+}
+
+.arrayBar {
+	background-color: pink;
+	width: 4px;
+	margin: auto 1px 100px 1px;
+}
