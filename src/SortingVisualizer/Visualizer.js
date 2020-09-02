@@ -6,8 +6,8 @@ import { BubbleSort } from '../Algorithms/BubbleSort';
 const PRIMARY_COLOR = '#25CCF7';
 const ACTIVE_COLOR = '#EA425C';
 const SORTED_COLOR = '#45CE30';
-const ARRAY_LENGTH = 160;
-
+const ARRAY_LENGTH = 20;
+const ANIMATION_SPEED_MS = 100;
 const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
@@ -32,9 +32,34 @@ const Visualizer = () => {
 	/* Bubble Sort */
 	const bubbleSort = () => {
 		const animations = BubbleSort(arr);
-
 		const arrayBars = document.getElementsByClassName('arrayBar');
-		arrayBars[0].style.backgroundColor = ACTIVE_COLOR;
+
+		for (let i = 0; i < animations.length; i++) {
+			const [first, second, decision] = animations[i];
+
+			if (decision === 1) {
+				setTimeout(() => {
+					const firstStyle = arrayBars[first].style;
+					firstStyle.backgroundColor = ACTIVE_COLOR;
+
+					const secondStyle = arrayBars[second].style;
+					secondStyle.backgroundColor = ACTIVE_COLOR;
+				}, i * ANIMATION_SPEED_MS);
+			} else if (decision === 0) {
+				setTimeout(() => {
+					const firstStyle = arrayBars[first].style;
+					firstStyle.backgroundColor = PRIMARY_COLOR;
+
+					const secondStyle = arrayBars[second].style;
+					secondStyle.backgroundColor = PRIMARY_COLOR;
+				}, i * ANIMATION_SPEED_MS);
+			} else {
+				setTimeout(() => {
+					const firstStyle = arrayBars[first].style;
+					firstStyle.height = `${second}px`;
+				}, i * ANIMATION_SPEED_MS);
+			}
+		}
 	};
 
 	// IGNORE: utility function
