@@ -1,6 +1,7 @@
 .visualizeContainer {
-	margin: 12vh auto 0 auto;
+	margin: 0 auto 0 auto;
 	width: fit-content;
+	height: 65vh;
 	display: flex;
 	flex-direction: row;
 }
@@ -24,6 +25,8 @@
 	line-height: 1.5;
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	cursor: pointer;
+	width: 8rem;
+	height: 3rem;
 	-webkit-appearance: none;
 	-webkit-font-smoothing: antialiased;
 }
@@ -44,5 +47,22 @@
 
 .footer {
 	background-color: #444;
-	height: 200px;
+	height: 25vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.header {
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+}
+
+.heading {
+	display: block;
+	font-weight: lighter;
+	color: #1fa3ec;
+	/* margin: 15px auto 20px auto; */
 }

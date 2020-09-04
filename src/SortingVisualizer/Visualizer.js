@@ -3,7 +3,7 @@ import './SortingVisualizer.css';
 import { BubbleSort } from '../Algorithms/BubbleSort';
 
 // CONSTANTS
-const PRIMARY_COLOR = '#ffffff';
+const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = '#EA425C';
 const SORTED_COLOR = '#45CE30';
 const ARRAY_LENGTH = 160;
@@ -73,6 +73,9 @@ const Visualizer = () => {
 
 	return (
 		<>
+			<div className="header">
+				<h2 className="heading">Sorting visualizer</h2>
+			</div>
 			<div className="visualizeContainer">
 				{arr.map((item, index) => {
 					return (
