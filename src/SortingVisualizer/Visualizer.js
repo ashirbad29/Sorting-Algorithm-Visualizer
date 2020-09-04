@@ -7,7 +7,7 @@ const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = '#EA425C';
 const SORTED_COLOR = '#45CE30';
 const ARRAY_LENGTH = 160;
-const ANIMATION_SPEED_MS = 0.8;
+const ANIMATION_SPEED_MS = 0.5;
 const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
