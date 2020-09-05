@@ -5,7 +5,7 @@ import { BubbleSort } from '../Algorithms/BubbleSort';
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = '#EA425C';
-const SORTED_COLOR = '#45CE30';
+// const SORTED_COLOR = '#45CE30';
 const ARRAY_LENGTH = 160;
 const ANIMATION_SPEED_MS = 0.5;
 const Visualizer = () => {
@@ -24,9 +24,10 @@ const Visualizer = () => {
 		return tempArr;
 	};
 
-	// Render the Array Before DOM loades
+	//Render the Array Before DOM loades
 	useEffect(() => {
 		setArr(populateArray());
+		//eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	/* Bubble Sort */
@@ -63,13 +64,13 @@ const Visualizer = () => {
 	};
 
 	// IGNORE: utility function
-	function arraysAreSorted(a, b) {
-		if (a.length !== b.length) return false;
-		for (let i = 0; i < a.length; i++) {
-			if (a[i] !== b[i]) return false;
-		}
-		return true;
-	}
+	// function arraysAreSorted(a, b) {
+	// 	if (a.length !== b.length) return false;
+	// 	for (let i = 0; i < a.length; i++) {
+	// 		if (a[i] !== b[i]) return false;
+	// 	}
+	// 	return true;
+	// }
 
 	return (
 		<>
