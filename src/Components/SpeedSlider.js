@@ -4,11 +4,11 @@ import { Slider } from '@material-ui/core';
 export const MySpeedSlider = ({ setAnimationSpeed }) => {
 	const mark = [
 		{
-			value: 0.4,
+			value: 0.3,
 			label: 'faster',
 		},
 		{
-			value: 90,
+			value: 200,
 			label: 'slower',
 		},
 	];
@@ -27,9 +27,9 @@ export const MySpeedSlider = ({ setAnimationSpeed }) => {
 				}}
 				defaultValue={0.5}
 				aria-labelledby="slider"
-				valueLabelDisplay="auto"
+				valueLabelDisplay="off"
 				min={0.3}
-				max={100}
+				max={200}
 				marks={mark}
 				onChange={(e, val) => setAnimationSpeed(val)}
 			/>

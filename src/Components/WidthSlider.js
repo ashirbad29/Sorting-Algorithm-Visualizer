@@ -16,7 +16,7 @@ export const MyWidthSlider = ({ setArrayWidth }) => {
 				}}
 				defaultValue={4}
 				aria-labelledby="slider"
-				valueLabelDisplay="auto"
+				valueLabelDisplay="off"
 				min={4}
 				max={30}
 				onChange={(e, val) => setArrayWidth(val)}

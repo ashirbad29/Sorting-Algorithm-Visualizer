@@ -16,7 +16,7 @@ export const Myslider = ({ setArrayLength }) => {
 				}}
 				defaultValue={160}
 				aria-labelledby="slider"
-				valueLabelDisplay="auto"
+				valueLabelDisplay="off"
 				min={4}
 				max={170}
 				step={10}
