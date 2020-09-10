@@ -2,17 +2,21 @@ import React, { useState, useEffect } from 'react';
 import './SortingVisualizer.css';
 import { BubbleSort } from '../Algorithms/BubbleSort';
 import Myslider from '../Components/Slider';
+import MyWidthSlider from '../Components/WidthSlider';
+import MySpeedSlider from '../Components/SpeedSlider';
 
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = '#EA425C';
 // const SORTED_COLOR = '#45CE30';
-// const ARRAY_LENGTH = 160;
-const ANIMATION_SPEED_MS = 0.5;
+// const ANIMATION_SPEED_MS = 0.5;
+
 const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
 	const [arrayLength, setArrayLength] = useState(160);
+	const [arrayBarWidth, setArrayBarWidth] = useState(4);
+	const [animationSpeed, setAnimationSpeed] = useState(0.5);
 
 	// Random Number Genrator
 	const generateRandomNumber = () => {
@@ -47,7 +51,7 @@ const Visualizer = () => {
 
 					const secondStyle = arrayBars[second].style;
 					secondStyle.backgroundColor = ACTIVE_COLOR;
-				}, i * ANIMATION_SPEED_MS);
+				}, i * animationSpeed);
 			} else if (decision === 0) {
 				setTimeout(() => {
 					const firstStyle = arrayBars[first].style;
@@ -55,12 +59,12 @@ const Visualizer = () => {
 
 					const secondStyle = arrayBars[second].style;
 					secondStyle.backgroundColor = PRIMARY_COLOR;
-				}, i * ANIMATION_SPEED_MS);
+				}, i * animationSpeed);
 			} else {
 				setTimeout(() => {
 					const firstStyle = arrayBars[first].style;
 					firstStyle.height = `${second}px`;
-				}, i * ANIMATION_SPEED_MS);
+				}, i * animationSpeed);
 			}
 		}
 	};
@@ -87,6 +91,7 @@ const Visualizer = () => {
 							style={{
 								height: `${item}px`,
 								backgroundColor: PRIMARY_COLOR,
+								width: `${arrayBarWidth}px`,
 							}}
 							key={index}
 						></div>
@@ -101,6 +106,8 @@ const Visualizer = () => {
 					BubbleSort
 				</button>
 				<Myslider label={'array length'} setArrayLength={setArrayLength} />
+				<MyWidthSlider setArrayWidth={setArrayBarWidth} />
+				<MySpeedSlider setAnimationSpeed={setAnimationSpeed} />
 			</div>
 		</>
 	);
