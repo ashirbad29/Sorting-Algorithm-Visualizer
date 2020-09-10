@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './SortingVisualizer.css';
 import { BubbleSort } from '../Algorithms/BubbleSort';
+import Myslider from '../Components/Slider';
 
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = '#EA425C';
 // const SORTED_COLOR = '#45CE30';
-const ARRAY_LENGTH = 160;
+// const ARRAY_LENGTH = 160;
 const ANIMATION_SPEED_MS = 0.5;
 const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
+	const [arrayLength, setArrayLength] = useState(160);
 
 	// Random Number Genrator
 	const generateRandomNumber = () => {
@@ -20,15 +22,15 @@ const Visualizer = () => {
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
 		const tempArr = [];
-		for (let i = 0; i < ARRAY_LENGTH; i++) tempArr.push(generateRandomNumber());
+		for (let i = 0; i < arrayLength; i++) tempArr.push(generateRandomNumber());
 		return tempArr;
 	};
 
 	//Render the Array Before DOM loades
 	useEffect(() => {
 		setArr(populateArray());
-		//eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [arrayLength]);
 
 	/* Bubble Sort */
 	const bubbleSort = () => {
@@ -98,6 +100,7 @@ const Visualizer = () => {
 				<button className="button" onClick={() => bubbleSort()}>
 					BubbleSort
 				</button>
+				<Myslider label={'array length'} setArrayLength={setArrayLength} />
 			</div>
 		</>
 	);
