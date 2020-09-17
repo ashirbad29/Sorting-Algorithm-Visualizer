@@ -79,9 +79,9 @@ const Visualizer = () => {
 	// }
 
 	return (
-		<>
+		<div className="container">
 			<div className="header">
-				<h2 className="heading">Sorting visualizer</h2>
+				<h2>Sorting visualizer</h2>
 			</div>
 			<div className="visualizeContainer">
 				{arr.map((item, index) => {
@@ -109,7 +109,7 @@ const Visualizer = () => {
 				<MyWidthSlider setArrayWidth={setArrayBarWidth} />
 				<MySpeedSlider setAnimationSpeed={setAnimationSpeed} />
 			</div>
-		</>
+		</div>
 	);
 };
 
