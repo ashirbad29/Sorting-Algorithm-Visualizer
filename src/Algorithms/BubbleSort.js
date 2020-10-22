@@ -1,20 +1,29 @@
-export const bubbleSort = arr => {
+import { swap } from './swap';
+
+export const bubbleSort = array => {
 	const animations = [];
+	let isSorted = false;
+	let counter = 0;
+	while (!isSorted) {
+		isSorted = true;
+		for (let i = 0; i < array.length - 1 - counter; i++) {
+			animations.push([i, i + 1, 1]);
+			animations.push([i, i + 1, 0]);
 
-	for (let i = 0; i < arr.length - 1; i++) {
-		for (let j = 0; j < arr.length - i - 1; j++) {
-			animations.push([j, j + 1, 1]);
-			animations.push([j, j + 1, 0]);
-
-			if (arr[j] > arr[j + 1]) {
-				let temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-
-				animations.push([j, arr[j], -1]);
-				animations.push([j + 1, arr[j + 1], -1]);
+			if (array[i] > array[i + 1]) {
+				swap(i, i + 1, array);
+				isSorted = false;
+				animations.push([i, array[i], -1]);
+				animations.push([i + 1, array[i + 1], -1]);
 			}
 		}
+		counter++;
 	}
 	return animations;
 };
+
+/* 
+ 1 -> set the bar color to active color
+ 0 -> reset the bar colors to primary
+ 2 -> size changing decision 
+*/

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './SortingVisualizer.css';
 import { bubbleSort } from '../algorithms/bubbleSort';
 import Myslider from '../Components/Slider';
 import MyWidthSlider from '../Components/WidthSlider';
 import MySpeedSlider from '../Components/SpeedSlider';
+
+// stylesheet
+import './SortingVisualizer.css';
 
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
