@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SortingVisualizer.css';
-import { BubbleSort } from '../Algorithms/BubbleSort';
+import { bubbleSort } from '../algorithms/bubbleSort';
 import Myslider from '../Components/Slider';
 import MyWidthSlider from '../Components/WidthSlider';
 import MySpeedSlider from '../Components/SpeedSlider';
@@ -11,17 +11,17 @@ const ACTIVE_COLOR = '#EA425C';
 // const SORTED_COLOR = '#45CE30';
 // const ANIMATION_SPEED_MS = 0.5;
 
+// Random Number Genrator
+const generateRandomNumber = () => {
+	return Math.floor(Math.random() * (400 - 10) + 10);
+};
+
 const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
 	const [arrayLength, setArrayLength] = useState(160);
 	const [arrayBarWidth, setArrayBarWidth] = useState(4);
 	const [animationSpeed, setAnimationSpeed] = useState(0.5);
-
-	// Random Number Genrator
-	const generateRandomNumber = () => {
-		return Math.floor(Math.random() * (400 - 10) + 10);
-	};
 
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
@@ -37,8 +37,8 @@ const Visualizer = () => {
 	}, [arrayLength]);
 
 	/* Bubble Sort */
-	const bubbleSort = () => {
-		const animations = BubbleSort(arr);
+	const bubbleSortAnimate = () => {
+		const animations = bubbleSort(arr);
 		const arrayBars = document.getElementsByClassName('arrayBar');
 
 		for (let i = 0; i < animations.length; i++) {
@@ -79,15 +79,15 @@ const Visualizer = () => {
 	// }
 
 	return (
-		<div className="container">
-			<div className="header">
+		<div className='container'>
+			<div className='header'>
 				<h2>Sorting visualizer</h2>
 			</div>
-			<div className="visualizeContainer">
+			<div className='visualizeContainer'>
 				{arr.map((item, index) => {
 					return (
 						<div
-							className="arrayBar"
+							className='arrayBar'
 							style={{
 								height: `${item}px`,
 								backgroundColor: PRIMARY_COLOR,
@@ -98,11 +98,11 @@ const Visualizer = () => {
 					);
 				})}
 			</div>
-			<div className="footer">
-				<button onClick={() => setArr(populateArray())} className="button">
+			<div className='footer'>
+				<button onClick={() => setArr(populateArray())} className='button'>
 					New Array
 				</button>
-				<button className="button" onClick={() => bubbleSort()}>
+				<button className='button' onClick={() => bubbleSortAnimate()}>
 					BubbleSort
 				</button>
 				<Myslider label={'array length'} setArrayLength={setArrayLength} />
