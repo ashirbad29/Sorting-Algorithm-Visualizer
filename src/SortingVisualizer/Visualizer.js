@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { bubbleSort } from '../algorithms/bubbleSort';
+import bubbleSort from '../algorithms/bubbleSort';
 import Myslider from '../Components/Slider';
 import MyWidthSlider from '../Components/WidthSlider';
 import MySpeedSlider from '../Components/SpeedSlider';
@@ -46,27 +46,33 @@ const Visualizer = () => {
 		for (let i = 0; i < animations.length; i++) {
 			const [first, second, decision] = animations[i];
 
-			if (decision === 1) {
-				setTimeout(() => {
-					const firstStyle = arrayBars[first].style;
-					firstStyle.backgroundColor = ACTIVE_COLOR;
+			switch (decision) {
+				case 1:
+					setTimeout(() => {
+						const firstStyle = arrayBars[first].style;
+						firstStyle.backgroundColor = ACTIVE_COLOR;
 
-					const secondStyle = arrayBars[second].style;
-					secondStyle.backgroundColor = ACTIVE_COLOR;
-				}, i * animationSpeed);
-			} else if (decision === 0) {
-				setTimeout(() => {
-					const firstStyle = arrayBars[first].style;
-					firstStyle.backgroundColor = PRIMARY_COLOR;
+						const secondStyle = arrayBars[second].style;
+						secondStyle.backgroundColor = ACTIVE_COLOR;
+					}, i * animationSpeed);
+					break;
+				case 0:
+					setTimeout(() => {
+						const firstStyle = arrayBars[first].style;
+						firstStyle.backgroundColor = PRIMARY_COLOR;
 
-					const secondStyle = arrayBars[second].style;
-					secondStyle.backgroundColor = PRIMARY_COLOR;
-				}, i * animationSpeed);
-			} else {
-				setTimeout(() => {
-					const firstStyle = arrayBars[first].style;
-					firstStyle.height = `${second}px`;
-				}, i * animationSpeed);
+						const secondStyle = arrayBars[second].style;
+						secondStyle.backgroundColor = PRIMARY_COLOR;
+					}, i * animationSpeed);
+					break;
+				case 2:
+					setTimeout(() => {
+						const firstStyle = arrayBars[first].style;
+						firstStyle.height = `${second}px`;
+					}, i * animationSpeed);
+					break;
+				default:
+				// no defualt
 			}
 		}
 	};
