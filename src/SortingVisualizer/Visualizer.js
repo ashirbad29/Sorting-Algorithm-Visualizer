@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import bubbleSort from '../algorithms/bubbleSort';
+import bubbleSort from '../algorithms/bubblesort';
 import Myslider from '../Components/Slider';
 import MyWidthSlider from '../Components/WidthSlider';
 import MySpeedSlider from '../Components/SpeedSlider';
