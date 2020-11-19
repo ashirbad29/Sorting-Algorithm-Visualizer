@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import bubbleSort from '../algorithms/bubblesort';
-import Myslider from '../Components/Slider';
-import MyWidthSlider from '../Components/WidthSlider';
-import MySpeedSlider from '../Components/SpeedSlider';
 
 // stylesheet
 import './SortingVisualizer.css';
@@ -22,8 +19,7 @@ const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
 	const [arrayLength, setArrayLength] = useState(160);
-	const [arrayBarWidth, setArrayBarWidth] = useState(4);
-	const [animationSpeed, setAnimationSpeed] = useState(0.5);
+	const [animationSpeed, setAnimationSpeed] = useState(30);
 
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
@@ -99,7 +95,6 @@ const Visualizer = () => {
 							style={{
 								height: `${item}px`,
 								backgroundColor: PRIMARY_COLOR,
-								width: `${arrayBarWidth}px`,
 							}}
 							key={index}
 						></div>
@@ -113,9 +108,27 @@ const Visualizer = () => {
 				<button className='button' onClick={() => bubbleSortAnimate()}>
 					BubbleSort
 				</button>
-				<Myslider label={'array length'} setArrayLength={setArrayLength} />
-				<MyWidthSlider setArrayWidth={setArrayBarWidth} />
-				<MySpeedSlider setAnimationSpeed={setAnimationSpeed} />
+				{/* FIX THIS */}
+				{/* <Myslider label={'array length'} setArrayLength={setArrayLength} /> */}
+				<label>Length of Array</label>
+				<input
+					className='input-range able'
+					type='range'
+					value={arrayLength}
+					onChange={e => setArrayLength(e.target.value)}
+					min='5'
+					max='200'
+				/>
+				{/* <MySpeedSlider setAnimationSpeed={setAnimationSpeed} /> */}
+				<label>Speed</label>
+				<input
+					className='input-range able'
+					type='range'
+					value={500 - animationSpeed}
+					onChange={e => setAnimationSpeed(500 - e.target.value)}
+					min='350'
+					max='499'
+				/>
 			</div>
 		</div>
 	);
