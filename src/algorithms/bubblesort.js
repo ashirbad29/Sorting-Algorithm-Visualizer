@@ -1,27 +1,32 @@
-import { swap } from './swap';
+// import { swap } from './swap';
 
-const bubbleSort = array => {
+export const bubbleSort = arr => {
 	const animations = [];
-	let isSorted = false;
-	let counter = 0;
-	while (!isSorted) {
-		isSorted = true;
-		for (let i = 0; i < array.length - 1 - counter; i++) {
-			animations.push([i, i + 1, 1]);
-			animations.push([i, i + 1, 0]);
 
-			if (array[i] > array[i + 1]) {
-				swap(i, i + 1, array);
-				isSorted = false;
-				animations.push([i, array[i], 2]);
-				animations.push([i + 1, array[i + 1], 2]);
+	for (let i = 0; i < arr.length - 1; i++) {
+		let swapped = false;
+		for (let j = 0; j < arr.length - i - 1; j++) {
+			let swap = false;
+			if (arr[j] > arr[j + 1]) {
+				swapped = true;
+				swap = true;
+
+				let temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
 			}
+			animations.push({
+				i: j,
+				j: j + 1,
+				swap: swap,
+			});
 		}
-		counter++;
+
+		if (swapped === false) break;
 	}
+
 	return animations;
 };
-export default bubbleSort;
 /* 
  1 -> set the bar color to active color
  0 -> reset the bar colors to primary

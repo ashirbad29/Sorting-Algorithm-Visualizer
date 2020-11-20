@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import bubbleSort from '../algorithms/bubblesort';
+import { bubbleSort } from '../algorithms/bubblesort';
 
 // stylesheet
 import './SortingVisualizer.css';
@@ -34,7 +34,8 @@ const Visualizer = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [arrayLength]);
 
-	/* Bubble Sort */
+	// BUBBLE SORT
+
 	const bubbleSortAnimate = () => {
 		const animations = bubbleSort(arr);
 		const arrayBars = document.getElementsByClassName('arrayBar');
