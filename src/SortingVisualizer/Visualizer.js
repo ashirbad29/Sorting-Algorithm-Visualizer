@@ -6,7 +6,8 @@ import './SortingVisualizer.css';
 
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
-const ACTIVE_COLOR = '#EA425C';
+const ACTIVE_COLOR = 'green';
+const THIRD_COLOR = 'cyan';
 // const SORTED_COLOR = '#45CE30';
 // const ANIMATION_SPEED_MS = 0.5;
 
@@ -20,6 +21,7 @@ const Visualizer = () => {
 	const [arr, setArr] = useState([]);
 	const [arrayLength, setArrayLength] = useState(70);
 	const [animationSpeed, setAnimationSpeed] = useState(10);
+	const [sortAlgo, setSortAlgo] = useState('bubbleSort');
 
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
@@ -32,7 +34,7 @@ const Visualizer = () => {
 	useEffect(() => {
 		setArr(populateArray());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [arrayLength]);
+	}, [arrayLength, sortAlgo]);
 
 	// BUBBLE SORT
 
@@ -40,38 +42,41 @@ const Visualizer = () => {
 		const animations = bubbleSort(arr);
 		const arrayBars = document.getElementsByClassName('arrayBar');
 
-		for (let i = 0; i < animations.length; i++) {
-			const [first, second, decision] = animations[i];
+		let m = 0;
+		for (let k = 0; k < animations.length; k++) {
+			let i = animations[k].i;
+			let j = animations[k].j;
 
-			switch (decision) {
-				case 1:
-					setTimeout(() => {
-						const firstStyle = arrayBars[first].style;
-						firstStyle.backgroundColor = ACTIVE_COLOR;
+			setTimeout(() => {
+				arrayBars[i].style.backgroundColor = ACTIVE_COLOR;
+				arrayBars[j].style.backgroundColor = ACTIVE_COLOR;
+			}, m * animationSpeed);
 
-						const secondStyle = arrayBars[second].style;
-						secondStyle.backgroundColor = ACTIVE_COLOR;
-					}, i * animationSpeed);
-					break;
-				case 0:
-					setTimeout(() => {
-						const firstStyle = arrayBars[first].style;
-						firstStyle.backgroundColor = PRIMARY_COLOR;
+			if (animations[k].swap) {
+				setTimeout(() => {
+					arrayBars[i].style.backgroundColor = THIRD_COLOR;
+					arrayBars[j].style.backgroundColor = THIRD_COLOR;
 
-						const secondStyle = arrayBars[second].style;
-						secondStyle.backgroundColor = PRIMARY_COLOR;
-					}, i * animationSpeed);
-					break;
-				case 2:
-					setTimeout(() => {
-						const firstStyle = arrayBars[first].style;
-						firstStyle.height = `${second}px`;
-					}, i * animationSpeed);
-					break;
-				default:
-				// no defualt
+					// swap the heights
+					let temp = arrayBars[i].style.height;
+					arrayBars[i].style.height = arrayBars[j].style.height;
+					arrayBars[j].style.height = temp;
+				}, (m + 1) * animationSpeed);
+				m++;
 			}
+
+			setTimeout(() => {
+				arrayBars[i].style.backgroundColor = PRIMARY_COLOR;
+				arrayBars[j].style.backgroundColor = PRIMARY_COLOR;
+			}, (m + 1) * animationSpeed);
+			m++;
 		}
+
+		setTimeout(() => {
+			for (let i = 0; i < arrayLength; i++) {
+				arrayBars[i].style.backgroundColor = 'red';
+			}
+		}, (m + 1) * animationSpeed);
 	};
 
 	// IGNORE: utility function
