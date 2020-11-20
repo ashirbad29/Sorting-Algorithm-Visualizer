@@ -18,8 +18,8 @@ const generateRandomNumber = () => {
 const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
-	const [arrayLength, setArrayLength] = useState(160);
-	const [animationSpeed, setAnimationSpeed] = useState(30);
+	const [arrayLength, setArrayLength] = useState(70);
+	const [animationSpeed, setAnimationSpeed] = useState(10);
 
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
@@ -117,7 +117,7 @@ const Visualizer = () => {
 					value={arrayLength}
 					onChange={e => setArrayLength(e.target.value)}
 					min='5'
-					max='200'
+					max='100'
 				/>
 				{/* <MySpeedSlider setAnimationSpeed={setAnimationSpeed} /> */}
 				<label>Speed</label>
