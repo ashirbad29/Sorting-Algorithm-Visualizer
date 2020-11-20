@@ -8,8 +8,6 @@ import './SortingVisualizer.css';
 const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = 'green';
 const THIRD_COLOR = 'cyan';
-// const SORTED_COLOR = '#45CE30';
-// const ANIMATION_SPEED_MS = 0.5;
 
 // Random Number Genrator
 const generateRandomNumber = () => {
@@ -26,13 +24,20 @@ const Visualizer = () => {
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
 		const tempArr = [];
-		for (let i = 0; i < arrayLength; i++) tempArr.push(generateRandomNumber());
-		return tempArr;
+		for (let i = 0; i < arrayLength; i++) {
+			tempArr.push(generateRandomNumber());
+			if (document.getElementsByClassName('arrayBar')[i] != null) {
+				document.getElementsByClassName('arrayBar')[
+					i
+				].style.backgroundColor = PRIMARY_COLOR;
+			}
+		}
+		setArr(tempArr);
 	};
 
 	//Render the Array Before DOM loades
 	useEffect(() => {
-		setArr(populateArray());
+		populateArray();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [arrayLength, sortAlgo]);
 
@@ -108,7 +113,7 @@ const Visualizer = () => {
 				})}
 			</div>
 			<div className='footer'>
-				<button onClick={() => setArr(populateArray())} className='button'>
+				<button onClick={() => populateArray()} className='button'>
 					New Array
 				</button>
 				<button className='button' onClick={() => bubbleSortAnimate()}>
