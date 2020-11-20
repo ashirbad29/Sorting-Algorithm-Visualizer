@@ -84,15 +84,6 @@ const Visualizer = () => {
 		}, (m + 1) * animationSpeed);
 	};
 
-	// IGNORE: utility function
-	// function arraysAreSorted(a, b) {
-	// 	if (a.length !== b.length) return false;
-	// 	for (let i = 0; i < a.length; i++) {
-	// 		if (a[i] !== b[i]) return false;
-	// 	}
-	// 	return true;
-	// }
-
 	return (
 		<div className='container'>
 			<div className='header'>
@@ -116,11 +107,11 @@ const Visualizer = () => {
 				<button onClick={() => populateArray()} className='button'>
 					New Array
 				</button>
+
 				<button className='button' onClick={() => bubbleSortAnimate()}>
 					BubbleSort
 				</button>
-				{/* FIX THIS */}
-				{/* <Myslider label={'array length'} setArrayLength={setArrayLength} /> */}
+
 				<label>Length of Array</label>
 				<input
 					className='input-range able'
@@ -130,7 +121,7 @@ const Visualizer = () => {
 					min='5'
 					max='100'
 				/>
-				{/* <MySpeedSlider setAnimationSpeed={setAnimationSpeed} /> */}
+
 				<label>Speed</label>
 				<input
 					className='input-range able'

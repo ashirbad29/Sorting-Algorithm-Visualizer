@@ -1,5 +1,3 @@
-// import { swap } from './swap';
-
 export const bubbleSort = arr => {
 	const animations = [];
 
@@ -27,8 +25,3 @@ export const bubbleSort = arr => {
 
 	return animations;
 };
-/* 
- 1 -> set the bar color to active color
- 0 -> reset the bar colors to primary
- 2 -> size changing decision 
-*/
