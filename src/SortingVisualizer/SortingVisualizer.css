@@ -67,3 +67,18 @@
 	color: #1fa3ec;
 	/* margin: 15px auto 20px auto; */
 }
+
+.slider-container {
+	height: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: inherit;
+}
+
+label {
+	color: #fff;
+	background-color: inherit;
+	font-weight: bold;
+}

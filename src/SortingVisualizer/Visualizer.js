@@ -107,30 +107,31 @@ const Visualizer = () => {
 				<button onClick={() => populateArray()} className='button'>
 					New Array
 				</button>
-
 				<button className='button' onClick={() => bubbleSortAnimate()}>
 					BubbleSort
 				</button>
-
-				<label>Length of Array</label>
-				<input
-					className='input-range able'
-					type='range'
-					value={arrayLength}
-					onChange={e => setArrayLength(e.target.value)}
-					min='5'
-					max='100'
-				/>
-
-				<label>Speed</label>
-				<input
-					className='input-range able'
-					type='range'
-					value={500 - animationSpeed}
-					onChange={e => setAnimationSpeed(500 - e.target.value)}
-					min='350'
-					max='499'
-				/>
+				<div className='slider-container'>
+					<label>Length of Array</label>
+					<input
+						className='input-range able'
+						type='range'
+						value={arrayLength}
+						onChange={e => setArrayLength(e.target.value)}
+						min='5'
+						max='100'
+					/>
+				</div>
+				<div className='slider-container'>
+					<label>Speed</label>
+					<input
+						className='input-range able'
+						type='range'
+						value={500 - animationSpeed}
+						onChange={e => setAnimationSpeed(500 - e.target.value)}
+						min='350'
+						max='499'
+					/>
+				</div>
 			</div>
 		</div>
 	);
