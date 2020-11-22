@@ -44,7 +44,6 @@ const Visualizer = () => {
 		}
 	}, [able]);
 
-	// Populate The Array With Random Numbers
 	const populateArray = size => {
 		const tempArr = [];
 		for (let i = 0; i < size; i++) {
@@ -63,7 +62,6 @@ const Visualizer = () => {
 	};
 
 	// BUBBLE SORT
-
 	const bubbleSortAnimate = () => {
 		const { animations, arr } = bubbleSort(mainArray);
 		const arrayBars = document.getElementsByClassName('arrayBar');
@@ -135,10 +133,7 @@ const Visualizer = () => {
 			</div>
 			<div className='footer'>
 				<button
-					onClick={() => {
-						console.log('array length' + arrayLength);
-						populateArray(arrayLength);
-					}}
+					onClick={() => populateArray(arrayLength)}
 					className='button able'
 				>
 					New Array
@@ -153,7 +148,7 @@ const Visualizer = () => {
 						type='range'
 						value={arrayLength}
 						onChange={e => setArrayLength(e.target.value)}
-						min='5'
+						min='7'
 						max='100'
 					/>
 				</div>
