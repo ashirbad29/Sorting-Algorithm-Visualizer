@@ -19,6 +19,17 @@
 	width: 200px;
 	margin: auto 1px 0 1px;
 	transition: height 0.1s;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.arrayBar > span {
+	background-color: inherit;
+	margin-bottom: 5px;
+	color: #fff;
+	font-weight: 400;
 }
 
 .button {

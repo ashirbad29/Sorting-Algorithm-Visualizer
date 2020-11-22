@@ -127,7 +127,9 @@ const Visualizer = () => {
 								backgroundColor: PRIMARY_COLOR,
 							}}
 							key={item.idx}
-						></div>
+						>
+							{arrayLength < 29 && able && <span>{item.val}</span>}
+						</div>
 					);
 				})}
 			</div>
