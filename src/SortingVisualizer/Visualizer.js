@@ -6,8 +6,8 @@ import './SortingVisualizer.css';
 
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
-const ACTIVE_COLOR = 'green';
-const THIRD_COLOR = 'cyan';
+const ACTIVE_COLOR = '#FFA500';
+const THIRD_COLOR = '#7CFC00';
 
 // Random Number Genrator
 const generateRandomNumber = () => {
@@ -18,7 +18,7 @@ const Visualizer = () => {
 	// state of the array
 	const [mainArray, setMainArray] = useState([]);
 	const [arrayLength, setArrayLength] = useState(70);
-	const [animationSpeed, setAnimationSpeed] = useState(30);
+	const [animationSpeed, setAnimationSpeed] = useState(10);
 	const [able, setAble] = useState(true);
 
 	//Render the Array Before DOM loades
