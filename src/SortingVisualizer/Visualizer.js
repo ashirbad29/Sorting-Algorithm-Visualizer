@@ -18,8 +18,32 @@ const Visualizer = () => {
 	// state of the array
 	const [arr, setArr] = useState([]);
 	const [arrayLength, setArrayLength] = useState(70);
-	const [animationSpeed, setAnimationSpeed] = useState(10);
-	const [sortAlgo, setSortAlgo] = useState('bubbleSort');
+	const [animationSpeed, setAnimationSpeed] = useState(30);
+	const [able, setAble] = useState(true);
+
+	//Render the Array Before DOM loades
+	useEffect(() => {
+		if (able) populateArray();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [arrayLength]);
+
+	// ABLE / DISABLE BUTTONS ETC.
+	useEffect(() => {
+		console.log('able use effect is running');
+		const items = document.getElementsByClassName('able');
+		console.log(items);
+		if (!able) {
+			for (let i = 0; i < items.length; i++) {
+				items[i].style.pointerEvents = 'none';
+				items[i].disabled = true;
+			}
+		} else {
+			for (let i = 0; i < items.length; i++) {
+				items[i].style.pointerEvents = 'auto';
+				items[i].disabled = false;
+			}
+		}
+	}, [able]);
 
 	// Populate The Array With Random Numbers
 	const populateArray = () => {
@@ -32,14 +56,8 @@ const Visualizer = () => {
 				].style.backgroundColor = PRIMARY_COLOR;
 			}
 		}
-		setArr(tempArr);
+		if (able) setArr(tempArr);
 	};
-
-	//Render the Array Before DOM loades
-	useEffect(() => {
-		populateArray();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [arrayLength, sortAlgo]);
 
 	// BUBBLE SORT
 
@@ -81,6 +99,7 @@ const Visualizer = () => {
 			for (let i = 0; i < arrayLength; i++) {
 				arrayBars[i].style.backgroundColor = 'red';
 			}
+			setAble(true);
 		}, (m + 1) * animationSpeed);
 	};
 
@@ -104,10 +123,10 @@ const Visualizer = () => {
 				})}
 			</div>
 			<div className='footer'>
-				<button onClick={() => populateArray()} className='button'>
+				<button onClick={() => populateArray()} className='button able'>
 					New Array
 				</button>
-				<button className='button' onClick={() => bubbleSortAnimate()}>
+				<button className='button able' onClick={() => bubbleSortAnimate()}>
 					BubbleSort
 				</button>
 				<div className='slider-container'>
