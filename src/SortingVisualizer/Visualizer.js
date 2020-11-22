@@ -10,8 +10,8 @@ const ACTIVE_COLOR = '#FFA500';
 const THIRD_COLOR = '#7CFC00';
 
 // Random Number Genrator
-const generateRandomNumber = () => {
-	return Math.floor(Math.random() * (400 - 10) + 10);
+const generateRandomNumber = (i, j) => {
+	return Math.floor(i + Math.random() * (j - i));
 };
 
 const Visualizer = () => {
@@ -50,7 +50,7 @@ const Visualizer = () => {
 		for (let i = 0; i < size; i++) {
 			const item = {
 				idx: i,
-				val: generateRandomNumber(),
+				val: generateRandomNumber(50, 400),
 			};
 			tempArr.push(item);
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
