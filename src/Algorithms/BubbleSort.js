@@ -1,4 +1,5 @@
-export const bubbleSort = arr => {
+export const bubbleSort = tempArr => {
+	const arr = tempArr.map(item => item.val);
 	const animations = [];
 
 	for (let i = 0; i < arr.length - 1; i++) {
@@ -23,5 +24,5 @@ export const bubbleSort = arr => {
 		if (swapped === false) break;
 	}
 
-	return animations;
+	return { animations, arr };
 };

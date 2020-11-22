@@ -16,7 +16,7 @@ const generateRandomNumber = () => {
 
 const Visualizer = () => {
 	// state of the array
-	const [arr, setArr] = useState([]);
+	const [mainArray, setMainArray] = useState([]);
 	const [arrayLength, setArrayLength] = useState(70);
 	const [animationSpeed, setAnimationSpeed] = useState(30);
 	const [able, setAble] = useState(true);
@@ -29,9 +29,8 @@ const Visualizer = () => {
 
 	// ABLE / DISABLE BUTTONS ETC.
 	useEffect(() => {
-		console.log('able use effect is running');
 		const items = document.getElementsByClassName('able');
-		console.log(items);
+
 		if (!able) {
 			for (let i = 0; i < items.length; i++) {
 				items[i].style.pointerEvents = 'none';
@@ -49,22 +48,27 @@ const Visualizer = () => {
 	const populateArray = size => {
 		const tempArr = [];
 		for (let i = 0; i < size; i++) {
-			tempArr.push(generateRandomNumber());
+			const item = {
+				idx: i,
+				val: generateRandomNumber(),
+			};
+			tempArr.push(item);
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
 				document.getElementsByClassName('arrayBar')[
 					i
 				].style.backgroundColor = PRIMARY_COLOR;
 			}
 		}
-		if (able) setArr(tempArr);
+		if (able) setMainArray(tempArr);
 	};
 
 	// BUBBLE SORT
 
 	const bubbleSortAnimate = () => {
-		const animations = bubbleSort(arr);
+		const { animations, arr } = bubbleSort(mainArray);
 		const arrayBars = document.getElementsByClassName('arrayBar');
 
+		setAble(false);
 		let m = 0;
 		for (let k = 0; k < animations.length; k++) {
 			let i = animations[k].i;
@@ -96,9 +100,16 @@ const Visualizer = () => {
 		}
 
 		setTimeout(() => {
-			for (let i = 0; i < arrayLength; i++) {
+			const sortedArray = [];
+			for (let i = 0; i < arr.length; i++) {
 				arrayBars[i].style.backgroundColor = 'red';
+
+				sortedArray.push({
+					idx: i,
+					val: arr[i],
+				});
 			}
+			setMainArray(sortedArray);
 			setAble(true);
 		}, (m + 1) * animationSpeed);
 	};
@@ -109,15 +120,15 @@ const Visualizer = () => {
 				<h2>Sorting visualizer</h2>
 			</div>
 			<div className='visualizeContainer'>
-				{arr.map((item, index) => {
+				{mainArray.map(item => {
 					return (
 						<div
 							className='arrayBar'
 							style={{
-								height: `${item}px`,
+								height: `${item.val}px`,
 								backgroundColor: PRIMARY_COLOR,
 							}}
-							key={index}
+							key={item.idx}
 						></div>
 					);
 				})}
