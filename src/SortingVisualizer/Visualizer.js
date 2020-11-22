@@ -23,7 +23,7 @@ const Visualizer = () => {
 
 	//Render the Array Before DOM loades
 	useEffect(() => {
-		if (able) populateArray();
+		if (able) populateArray(arrayLength);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [arrayLength]);
 
@@ -46,9 +46,9 @@ const Visualizer = () => {
 	}, [able]);
 
 	// Populate The Array With Random Numbers
-	const populateArray = () => {
+	const populateArray = size => {
 		const tempArr = [];
-		for (let i = 0; i < arrayLength; i++) {
+		for (let i = 0; i < size; i++) {
 			tempArr.push(generateRandomNumber());
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
 				document.getElementsByClassName('arrayBar')[
@@ -123,7 +123,13 @@ const Visualizer = () => {
 				})}
 			</div>
 			<div className='footer'>
-				<button onClick={() => populateArray()} className='button able'>
+				<button
+					onClick={() => {
+						console.log('array length' + arrayLength);
+						populateArray(arrayLength);
+					}}
+					className='button able'
+				>
 					New Array
 				</button>
 				<button className='button able' onClick={() => bubbleSortAnimate()}>
