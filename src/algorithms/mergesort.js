@@ -1,20 +1,139 @@
-export const mergeSortAnimation = tempArr => {
-	const animations = [];
+let count = 0;
+
+export const mergeSortAnimation = (tempArr, animationSpeed) => {
 	const arr = tempArr.map(item => item.val);
-	const auxiliaryArray = arr.slice();
-	mergeSort(arr, 0, arr.length - 1, auxiliaryArray, animations);
-	return animations;
+	count = 0;
+	const sortedArray = mergesort(arr, 0, arr.length - 1, animationSpeed);
+	return { sortedArray, count };
 };
 
-function mergeSort(arr, start, end, auxiliaryArray, animations) {
-	if (start >= end) return;
-	const middle = (start + end) / 2;
+const mergesort = (arr, low, high, animationSpeed) => {
+	if (low > high) {
+		return [];
+	}
 
-	mergeSort(arr, start, middle, auxiliaryArray, animations);
-	mergeSort(arr, middle + 1, end, auxiliaryArray, animations);
-	merge(arr, start, middle, end, auxiliaryArray, animations);
-}
+	if (low === high) {
+		let aux = [];
+		aux.push(arr[low]);
+		return aux;
+	}
 
-function merge(arr, start, middle, end, auxiliaryArray, animations) {
-	// do some work
-}
+	let mid = Math.floor((high + low) / 2);
+
+	// recursively divide the array until its sorted
+	// in the end it will only have a single item and sorted :)
+
+	const right = mergesort(arr, low, mid, animationSpeed);
+	const left = mergesort(arr, mid + 1, high, animationSpeed);
+
+	const aux = [];
+	let k = low;
+	const arrayBars = document.getElementsByClassName('arrayBar');
+
+	let li = 0,
+		ri = 0; // for left and right array respectively
+	while (li < left.length && ri < right.length) {
+		let counter = count;
+		let barIdx = k;
+
+		if (left[li] < right[ri]) {
+			aux.push(left[li]);
+			let i = li;
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.height = `${left[i]}px`;
+			}, counter * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'red';
+			}, (counter + 1) * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = '#074478';
+			}, (counter + 1.5) * animationSpeed);
+			li++;
+		} else {
+			aux.push(right[ri]);
+			let i = ri;
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.height = `${right[i]}px`;
+			}, counter * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'red';
+			}, (counter + 1) * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = '#074478';
+			}, (counter + 1.5) * animationSpeed);
+			ri++;
+		}
+		k++;
+		count++;
+	}
+
+	// left exhausted
+	if (li === left.length) {
+		while (ri < right.length) {
+			aux.push(right[ri]);
+			let barIdx = k;
+			let i = ri;
+			let counter = count;
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.height = `${right[i]}px`;
+			}, counter * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'red';
+			}, (counter + 1) * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = '#074478';
+			}, (counter + 1.5) * animationSpeed);
+			ri++;
+			count++;
+			k++;
+		}
+	} else if (ri === right.length) {
+		while (li < left.length) {
+			aux.push(left[li]);
+			let barIdx = k;
+			let i = li;
+			let counter = count;
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.height = `${left[i]}px`;
+			}, counter * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = 'red';
+			}, (counter + 1) * animationSpeed);
+
+			setTimeout(() => {
+				arrayBars[barIdx].style.backgroundColor = '#074478';
+			}, (counter + 1.5) * animationSpeed);
+			li++;
+			k++;
+			count++;
+		}
+	}
+	return aux;
+};
+
+// function mergeSort(arr, start, end, auxiliaryArray, animations) {
+// 	if (start >= end) return;
+// 	const middle = (start + end) / 2;
+
+// 	mergeSort(arr, start, middle, auxiliaryArray, animations);
+// 	mergeSort(arr, middle + 1, end, auxiliaryArray, animations);
+// 	merge(arr, start, middle, end, auxiliaryArray, animations);
+// }
+
+// function merge(arr, start, middle, end, auxiliaryArray, animations) {
+// 	// do some work
+// }
