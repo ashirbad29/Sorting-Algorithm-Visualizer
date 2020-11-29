@@ -49,7 +49,7 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#074478';
+				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
 			}, (counter + 1.5) * animationSpeed);
 			li++;
 		} else {
@@ -66,7 +66,7 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#074478';
+				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
 			}, (counter + 1.5) * animationSpeed);
 			ri++;
 		}
@@ -92,7 +92,7 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#074478';
+				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
 			}, (counter + 1.5) * animationSpeed);
 			ri++;
 			count++;
@@ -115,7 +115,7 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#074478';
+				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
 			}, (counter + 1.5) * animationSpeed);
 			li++;
 			k++;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { bubbleSort } from '../algorithms/bubblesort';
-
+import { mergeSortAnimation } from '../algorithms/mergesort';
 // stylesheet
 import './SortingVisualizer.css';
 
@@ -49,7 +49,7 @@ const Visualizer = () => {
 		for (let i = 0; i < size; i++) {
 			const item = {
 				idx: i,
-				val: generateRandomNumber(50, 400),
+				val: generateRandomNumber(10, 400),
 			};
 			tempArr.push(item);
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
@@ -112,6 +112,27 @@ const Visualizer = () => {
 		}, (m + 1) * animationSpeed);
 	};
 
+	// MERGE SORT
+	const mergeSort = () => {
+		setAble(false);
+		const { sortedArray, count } = mergeSortAnimation(
+			mainArray,
+			animationSpeed
+		);
+
+		const newArray = sortedArray.map((val, idx) => ({ val, idx }));
+
+		setTimeout(() => {
+			setMainArray(newArray);
+			const arrayBars = document.getElementsByClassName('arrayBar');
+
+			for (let i = 0; i < arrayLength; i++) {
+				arrayBars[i].style.backgroundColor = 'red';
+			}
+			setAble(true);
+		}, (count + 5) * animationSpeed);
+	};
+
 	return (
 		<div className='container'>
 			<div className='header'>
@@ -142,6 +163,9 @@ const Visualizer = () => {
 				</button>
 				<button className='button able' onClick={() => bubbleSortAnimate()}>
 					BubbleSort
+				</button>
+				<button className='button able' onClick={() => mergeSort()}>
+					mergeSort
 				</button>
 				<div className='slider-container'>
 					<label>Length of Array</label>
