@@ -137,8 +137,54 @@ const Visualizer = () => {
 
 	// INSERTION SORT
 	const insertionSortAnimate = () => {
-		const sortedArr = insertionSort(mainArray);
-		console.log(sortedArr);
+		const { animations, arr } = insertionSort(mainArray);
+		const arrayBars = document.getElementsByClassName('arrayBar');
+
+		setAble(false);
+		let m = 0;
+		for (let k = 0; k < animations.length; k++) {
+			let i = animations[k].i;
+			let j = animations[k].j;
+
+			if (!animations[k].swap) {
+				setTimeout(() => {
+					arrayBars[i].style.backgroundColor = ACTIVE_COLOR;
+					arrayBars[j].style.backgroundColor = ACTIVE_COLOR;
+				}, m * animationSpeed);
+			}
+			if (animations[k].swap) {
+				setTimeout(() => {
+					arrayBars[i].style.backgroundColor = THIRD_COLOR;
+					arrayBars[j].style.backgroundColor = THIRD_COLOR;
+
+					// swap the heights
+					let temp = arrayBars[i].style.height;
+					arrayBars[i].style.height = arrayBars[j].style.height;
+					arrayBars[j].style.height = temp;
+				}, (m + 1) * animationSpeed);
+				m++;
+			}
+
+			setTimeout(() => {
+				arrayBars[i].style.backgroundColor = PRIMARY_COLOR;
+				arrayBars[j].style.backgroundColor = PRIMARY_COLOR;
+			}, (m + 1) * animationSpeed);
+			m++;
+		}
+
+		setTimeout(() => {
+			const sortedArray = [];
+			for (let i = 0; i < arr.length; i++) {
+				arrayBars[i].style.backgroundColor = 'red';
+
+				sortedArray.push({
+					idx: i,
+					val: arr[i],
+				});
+			}
+			setMainArray(sortedArray);
+			setAble(true);
+		}, (m + 1) * animationSpeed);
 	};
 	return (
 		<div className='container'>
