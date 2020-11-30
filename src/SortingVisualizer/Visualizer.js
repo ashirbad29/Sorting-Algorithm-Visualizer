@@ -133,6 +133,11 @@ const Visualizer = () => {
 		}, (count + 5) * animationSpeed);
 	};
 
+	// INSERTION SORT
+	const insertionSortAnimate = () => {
+		// code
+		console.log('insertion sort');
+	};
 	return (
 		<div className='container'>
 			<div className='header'>
@@ -166,6 +171,9 @@ const Visualizer = () => {
 				</button>
 				<button className='button able' onClick={() => mergeSort()}>
 					mergeSort
+				</button>
+				<button className='button able' onClick={() => insertionSortAnimate()}>
+					insertion
 				</button>
 				<div className='slider-container'>
 					<label>Length of Array</label>
