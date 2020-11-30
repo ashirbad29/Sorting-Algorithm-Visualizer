@@ -221,7 +221,10 @@ const Visualizer = () => {
 					mergeSort
 				</button>
 				<button className='button able' onClick={() => insertionSortAnimate()}>
-					insertion
+					insertionSort
+				</button>
+				<button className='button able' onClick={() => insertionSortAnimate()}>
+					selectionSort
 				</button>
 				<div className='slider-container'>
 					<label>Length of Array</label>
