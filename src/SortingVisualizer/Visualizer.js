@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { bubbleSort } from '../algorithms/bubblesort';
 import { mergeSortAnimation } from '../algorithms/mergesort';
+import { insertionSort } from '../algorithms/insertion';
+
 // stylesheet
 import './SortingVisualizer.css';
 
@@ -135,8 +137,8 @@ const Visualizer = () => {
 
 	// INSERTION SORT
 	const insertionSortAnimate = () => {
-		// code
-		console.log('insertion sort');
+		const sortedArr = insertionSort(mainArray);
+		console.log(sortedArr);
 	};
 	return (
 		<div className='container'>
