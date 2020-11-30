@@ -162,7 +162,7 @@ const Visualizer = () => {
 			<div className='footer'>
 				<button
 					onClick={() => populateArray(arrayLength)}
-					className='button able'
+					className='new-arr-btn button able'
 				>
 					New Array
 				</button>
