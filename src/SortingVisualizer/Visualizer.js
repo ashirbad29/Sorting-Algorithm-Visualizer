@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { bubbleSort } from '../algorithms/bubblesort';
 import { mergeSortAnimation } from '../algorithms/mergesort';
 import { insertionSort } from '../algorithms/insertion';
-
+import { selectionSort } from '../algorithms/selectionsort';
 // stylesheet
 import './SortingVisualizer.css';
 
@@ -51,7 +51,7 @@ const Visualizer = () => {
 		for (let i = 0; i < size; i++) {
 			const item = {
 				idx: i,
-				val: generateRandomNumber(10, 400),
+				val: generateRandomNumber(25, 400),
 			};
 			tempArr.push(item);
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
@@ -186,6 +186,23 @@ const Visualizer = () => {
 			setAble(true);
 		}, (m + 1) * animationSpeed);
 	};
+
+	const selectionSortAnimate = () => {
+		setAble(false);
+		const { arr, count } = selectionSort(mainArray, animationSpeed);
+		const newArray = arr.map((val, idx) => ({ val, idx }));
+
+		setTimeout(() => {
+			setMainArray(newArray);
+			const arrayBars = document.getElementsByClassName('arrayBar');
+
+			for (let i = 0; i < arrayLength; i++) {
+				arrayBars[i].style.backgroundColor = 'red';
+			}
+			setAble(true);
+		}, (count + 2) * animationSpeed);
+	};
+
 	return (
 		<div className='container'>
 			<div className='header'>
@@ -223,7 +240,7 @@ const Visualizer = () => {
 				<button className='button able' onClick={() => insertionSortAnimate()}>
 					insertionSort
 				</button>
-				<button className='button able' onClick={() => insertionSortAnimate()}>
+				<button className='button able' onClick={() => selectionSortAnimate()}>
 					selectionSort
 				</button>
 				<div className='slider-container'>
