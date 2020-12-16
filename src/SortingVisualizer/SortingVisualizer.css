@@ -101,3 +101,28 @@ label {
 .new-arr-btn {
 	background-color: #ff0000;
 }
+
+.select-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 200px;
+	background-color: inherit;
+	font-size: 16px;
+}
+
+#select {
+	height: 35px;
+	padding: 5px 7px;
+	line-height: 20px;
+	font-size: 18px;
+	width: 100%;
+	border: 2px solid green;
+	border-radius: 6px;
+	/* appearance: none; */
+	margin-top: 10px;
+}
+
+.select-box select:focus {
+	border: 2px solid green;
+}

@@ -21,13 +21,14 @@ const Visualizer = () => {
 	const [mainArray, setMainArray] = useState([]);
 	const [arrayLength, setArrayLength] = useState(70);
 	const [animationSpeed, setAnimationSpeed] = useState(10);
+	const [algo, setAlgo] = useState('mergesort');
 	const [able, setAble] = useState(true);
 
 	//Render the Array Before DOM loades
 	useEffect(() => {
 		if (able) populateArray(arrayLength);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [arrayLength]);
+	}, [arrayLength, algo]);
 
 	// ABLE / DISABLE BUTTONS ETC.
 	useEffect(() => {
@@ -203,6 +204,29 @@ const Visualizer = () => {
 		}, (count + 2) * animationSpeed);
 	};
 
+	const startSorting = algo => {
+		switch (algo) {
+			case 'bubblesort':
+				bubbleSortAnimate();
+				break;
+
+			case 'mergesort':
+				mergeSort();
+				break;
+
+			case 'selectionsort':
+				selectionSortAnimate();
+				break;
+
+			case 'insertionsort':
+				insertionSortAnimate();
+				break;
+			default:
+				mergeSort();
+				break;
+		}
+	};
+
 	return (
 		<div className='container'>
 			<div className='header'>
@@ -225,24 +249,31 @@ const Visualizer = () => {
 				})}
 			</div>
 			<div className='footer'>
+				<div className='select-box able'>
+					<label htmlFor='algo'>select algorithm</label>
+					<select
+						name='algo'
+						id='select'
+						value={algo}
+						onChange={e => setAlgo(e.target.value)}
+					>
+						<option value='bubblesort'>bubble sort</option>
+						<option value='mergesort'>merge sort</option>
+						<option value='insertionsort'>insertion sort</option>
+						<option value='selectionsort'>selection sort</option>
+					</select>
+				</div>
+				<button className='button able' onClick={() => startSorting(algo)}>
+					Sort
+				</button>
+
 				<button
 					onClick={() => populateArray(arrayLength)}
 					className='new-arr-btn button able'
 				>
 					New Array
 				</button>
-				<button className='button able' onClick={() => bubbleSortAnimate()}>
-					BubbleSort
-				</button>
-				<button className='button able' onClick={() => mergeSort()}>
-					mergeSort
-				</button>
-				<button className='button able' onClick={() => insertionSortAnimate()}>
-					insertionSort
-				</button>
-				<button className='button able' onClick={() => selectionSortAnimate()}>
-					selectionSort
-				</button>
+
 				<div className='slider-container'>
 					<label>Length of Array</label>
 					<input
