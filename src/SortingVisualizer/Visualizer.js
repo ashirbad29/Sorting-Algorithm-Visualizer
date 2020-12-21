@@ -282,7 +282,7 @@ const Visualizer = () => {
 						value={arrayLength}
 						onChange={e => setArrayLength(e.target.value)}
 						min='7'
-						max='100'
+						max='150'
 					/>
 				</div>
 				<div className='slider-container'>

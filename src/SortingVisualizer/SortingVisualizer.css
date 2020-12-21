@@ -5,10 +5,24 @@
 	flex-direction: column;
 }
 
+.header {
+	height: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.header > h2 {
+	display: block;
+	font-weight: lighter;
+	color: #1fa3ec;
+}
+
 .visualizeContainer {
 	margin: 0 auto 0 auto;
-	width: 1150px;
-	height: 100%;
+	width: 100%;
+	max-width: 1200px;
 	flex: 1;
 	display: flex;
 	flex-direction: row;
@@ -16,7 +30,7 @@
 }
 
 .arrayBar {
-	width: 200px;
+	width: 130px;
 	margin: auto 1px 0 1px;
 	transition: height 0.1s;
 	display: flex;
@@ -57,26 +71,11 @@
 .footer {
 	width: 100%;
 	background-color: #444;
-	height: 25vh;
+	min-height: 150px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
-}
-
-.header {
-	height: 10%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.header > h2 {
-	display: block;
-	font-weight: lighter;
-	color: #1fa3ec;
-	/* margin: 15px auto 20px auto; */
 }
 
 .slider-container {
