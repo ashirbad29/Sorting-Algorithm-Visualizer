@@ -37,21 +37,17 @@
 }
 
 .button {
-	display: inline-block;
-	margin: 0;
+	width: 7rem;
+	height: 3rem;
 	padding: 0.3rem 0rem;
-	border: 0;
+	border: none;
 	border-radius: 0.317rem;
 	background-color: #1fa3ec;
 	color: #fff;
-	text-decoration: none;
 	font-weight: 700;
 	font-size: 1rem;
-	line-height: 1.5;
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	cursor: pointer;
-	width: 7rem;
-	height: 3rem;
 }
 
 .button:hover {
