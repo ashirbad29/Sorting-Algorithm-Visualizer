@@ -52,7 +52,7 @@ const Visualizer = () => {
 		for (let i = 0; i < size; i++) {
 			const item = {
 				idx: i,
-				val: generateRandomNumber(25, 400),
+				val: generateRandomNumber(25, 500),
 			};
 			tempArr.push(item);
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
@@ -229,9 +229,9 @@ const Visualizer = () => {
 
 	return (
 		<div className='container'>
-			<div className='header'>
+			{/* <div className='header'>
 				<h2>Sorting visualizer</h2>
-			</div>
+			</div> */}
 			<div className='visualizeContainer'>
 				{mainArray.map(item => {
 					return (

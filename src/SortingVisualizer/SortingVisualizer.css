@@ -1,8 +1,11 @@
 .container {
-	height: 100vh;
 	width: 100%;
+	height: 100vh;
 	display: flex;
-	flex-direction: column;
+	background-color: #dddddd;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+	overflow: hidden;
 }
 
 .header {
@@ -20,23 +23,29 @@
 }
 
 .visualizeContainer {
-	margin: 0 auto 0 auto;
+	margin: 0 5px 0 5px;
 	width: 100%;
-	max-width: 1200px;
-	flex: 1;
+	min-width: 500px;
+	height: 100%;
+	min-height: 500px;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	align-items: flex-end;
+	justify-content: space-evenly;
+	background-color: inherit;
 }
 
 .arrayBar {
-	width: 130px;
-	margin: auto 1px 0 1px;
+	width: 80px;
+	margin: 0px 1px 2px 1px;
 	transition: height 0.1s;
+	/* align-items: flex-end; */
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: center;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }
 
 .arrayBar > span {
@@ -69,11 +78,15 @@
 }
 
 .footer {
-	width: 100%;
-	background-color: #444;
-	min-height: 150px;
+	width: 25vw;
+	min-width: 200px;
+	height: 100%;
+	min-height: 500px;
+	padding: 2vw;
+	background-color: #222831;
+	/* min-height: 150px; */
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
 }
