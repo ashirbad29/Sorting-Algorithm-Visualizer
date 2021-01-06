@@ -10,6 +10,7 @@ import './SortingVisualizer.css';
 const PRIMARY_COLOR = '#dd85e7';
 const ACTIVE_COLOR = '#FFA500';
 const THIRD_COLOR = '#7CFC00';
+const SORTED_COLOR = '#00587a';
 
 // Random Number Genrator
 const generateRandomNumber = (i, j) => {
@@ -103,7 +104,7 @@ const Visualizer = () => {
 		setTimeout(() => {
 			const sortedArray = [];
 			for (let i = 0; i < arr.length; i++) {
-				arrayBars[i].style.backgroundColor = 'red';
+				arrayBars[i].style.backgroundColor = SORTED_COLOR;
 
 				sortedArray.push({
 					idx: i,
@@ -130,7 +131,7 @@ const Visualizer = () => {
 			const arrayBars = document.getElementsByClassName('arrayBar');
 
 			for (let i = 0; i < arrayLength; i++) {
-				arrayBars[i].style.backgroundColor = 'red';
+				arrayBars[i].style.backgroundColor = SORTED_COLOR;
 			}
 			setAble(true);
 		}, (count + 5) * animationSpeed);
@@ -176,7 +177,7 @@ const Visualizer = () => {
 		setTimeout(() => {
 			const sortedArray = [];
 			for (let i = 0; i < arr.length; i++) {
-				arrayBars[i].style.backgroundColor = 'red';
+				arrayBars[i].style.backgroundColor = SORTED_COLOR;
 
 				sortedArray.push({
 					idx: i,
@@ -198,7 +199,7 @@ const Visualizer = () => {
 			const arrayBars = document.getElementsByClassName('arrayBar');
 
 			for (let i = 0; i < arrayLength; i++) {
-				arrayBars[i].style.backgroundColor = 'red';
+				arrayBars[i].style.backgroundColor = SORTED_COLOR;
 			}
 			setAble(true);
 		}, (count + 2) * animationSpeed);
@@ -229,9 +230,6 @@ const Visualizer = () => {
 
 	return (
 		<div className='container'>
-			{/* <div className='header'>
-				<h2>Sorting visualizer</h2>
-			</div> */}
 			<div className='visualizeContainer'>
 				{mainArray.map(item => {
 					return (
@@ -248,7 +246,7 @@ const Visualizer = () => {
 					);
 				})}
 			</div>
-			<div className='footer'>
+			<div className='sidebar'>
 				<div className='select-box able'>
 					<label htmlFor='algo'>select algorithm</label>
 					<select
@@ -271,7 +269,7 @@ const Visualizer = () => {
 					onClick={() => populateArray(arrayLength)}
 					className='new-arr-btn button able'
 				>
-					New Array
+					Reset
 				</button>
 
 				<div className='slider-container'>

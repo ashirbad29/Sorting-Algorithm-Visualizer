@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 100vh;
 	display: flex;
-	background-color: #dddddd;
+	background-color: #d4e2d4;
 	flex-direction: row-reverse;
 	align-items: flex-end;
 	overflow: hidden;
@@ -55,17 +55,13 @@
 	font-weight: 400;
 }
 
-.new-arr-btn {
-	background-color: red;
-}
-
 .button {
 	width: 7rem;
 	height: 3rem;
 	padding: 0.3rem 0rem;
 	border: none;
 	border-radius: 0.317rem;
-	background-color: #1fa3ec;
+	background-color: #008891;
 	color: #fff;
 	font-weight: 700;
 	font-size: 1rem;
@@ -77,13 +73,13 @@
 	opacity: 0.85;
 }
 
-.footer {
+.sidebar {
 	width: 25vw;
 	min-width: 200px;
 	height: 100%;
 	min-height: 500px;
 	padding: 2vw;
-	background-color: #222831;
+	background-color: #00303f;
 	/* min-height: 150px; */
 	display: flex;
 	flex-direction: column;
@@ -104,10 +100,6 @@ label {
 	color: #fff;
 	background-color: inherit;
 	font-weight: bold;
-}
-
-.new-arr-btn {
-	background-color: #ff0000;
 }
 
 .select-box {
