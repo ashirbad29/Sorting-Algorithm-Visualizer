@@ -247,6 +247,9 @@ const Visualizer = () => {
 				})}
 			</div>
 			<div className='sidebar'>
+				<header>
+					Sorting algorithm <br /> Visualizer
+				</header>
 				<div className='select-box able'>
 					<label htmlFor='algo'>select algorithm</label>
 					<select

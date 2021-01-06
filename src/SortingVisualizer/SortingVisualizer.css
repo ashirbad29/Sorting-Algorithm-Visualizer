@@ -8,20 +8,6 @@
 	overflow: hidden;
 }
 
-.header {
-	height: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.header > h2 {
-	display: block;
-	font-weight: lighter;
-	color: #1fa3ec;
-}
-
 .visualizeContainer {
 	margin: 0 5px 0 5px;
 	width: 100%;
@@ -39,7 +25,6 @@
 	width: 80px;
 	margin: 0px 1px 2px 1px;
 	transition: height 0.1s;
-	/* align-items: flex-end; */
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -56,7 +41,7 @@
 }
 
 .button {
-	width: 7rem;
+	width: 12rem;
 	height: 3rem;
 	padding: 0.3rem 0rem;
 	border: none;
@@ -80,7 +65,6 @@
 	min-height: 500px;
 	padding: 2vw;
 	background-color: #00303f;
-	/* min-height: 150px; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -89,6 +73,7 @@
 
 .slider-container {
 	height: 3rem;
+	width: 12rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -96,10 +81,14 @@
 	background-color: inherit;
 }
 
+.slider-container > input {
+	width: 100%;
+}
+
 label {
 	color: #fff;
 	background-color: inherit;
-	font-weight: bold;
+	font-size: 1.1rem;
 }
 
 .select-box {
@@ -111,6 +100,15 @@ label {
 	font-size: 16px;
 }
 
+header {
+	background-color: inherit;
+	color: #e7d9ea;
+	font-size: larger;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	text-align: center;
+	line-height: 2rem;
+}
+
 #select {
 	height: 35px;
 	padding: 5px 7px;
@@ -119,7 +117,6 @@ label {
 	width: 100%;
 	border: 2px solid green;
 	border-radius: 6px;
-	/* appearance: none; */
 	margin-top: 10px;
 }
 
