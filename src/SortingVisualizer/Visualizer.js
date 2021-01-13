@@ -3,6 +3,7 @@ import { bubbleSort } from '../algorithms/bubblesort';
 import { mergeSortAnimation } from '../algorithms/mergesort';
 import { insertionSort } from '../algorithms/insertion';
 import { selectionSort } from '../algorithms/selectionsort';
+import { quicksort } from '../algorithms/quicksort';
 // stylesheet
 import './SortingVisualizer.css';
 
@@ -205,6 +206,22 @@ const Visualizer = () => {
 		}, (count + 2) * animationSpeed);
 	};
 
+	const quicksortAnimate = () => {
+		setAble(false);
+		const { arr, count } = quicksort(mainArray, animationSpeed);
+		const newArray = arr.map((val, idx) => ({ val, idx }));
+
+		setTimeout(() => {
+			setMainArray(newArray);
+			const arrayBars = document.getElementsByClassName('arrayBar');
+
+			for (let i = 0; i < arrayLength; i++) {
+				arrayBars[i].style.backgroundColor = SORTED_COLOR;
+			}
+			setAble(true);
+		}, (count + 1) * animationSpeed);
+	};
+
 	const startSorting = algo => {
 		switch (algo) {
 			case 'bubblesort':
@@ -221,6 +238,9 @@ const Visualizer = () => {
 
 			case 'insertionsort':
 				insertionSortAnimate();
+				break;
+			case 'quicksort':
+				quicksortAnimate();
 				break;
 			default:
 				mergeSort();
@@ -262,6 +282,7 @@ const Visualizer = () => {
 						<option value='mergesort'>merge sort</option>
 						<option value='insertionsort'>insertion sort</option>
 						<option value='selectionsort'>selection sort</option>
+						<option value='quicksort'>quick sort</option>
 					</select>
 				</div>
 				<button className='button able' onClick={() => startSorting(algo)}>
