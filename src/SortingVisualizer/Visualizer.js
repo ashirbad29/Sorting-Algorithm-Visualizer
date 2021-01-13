@@ -66,6 +66,25 @@ const Visualizer = () => {
 		if (able) setMainArray(tempArr);
 	};
 
+	// colors every elements afte sorting
+	const colorEveryElement = (arr, counter) => {
+		setTimeout(() => {
+			const sortedArray = [];
+			for (let i = 0; i < arr.length; i++) {
+				document.getElementsByClassName('arrayBar')[
+					i
+				].style.backgroundColor = SORTED_COLOR;
+
+				sortedArray.push({
+					idx: i,
+					val: arr[i],
+				});
+			}
+			setMainArray(sortedArray);
+			setAble(true);
+		}, counter * animationSpeed);
+	};
+
 	// BUBBLE SORT
 	const bubbleSortAnimate = () => {
 		const { animations, arr } = bubbleSort(mainArray);
@@ -102,19 +121,7 @@ const Visualizer = () => {
 			m++;
 		}
 
-		setTimeout(() => {
-			const sortedArray = [];
-			for (let i = 0; i < arr.length; i++) {
-				arrayBars[i].style.backgroundColor = SORTED_COLOR;
-
-				sortedArray.push({
-					idx: i,
-					val: arr[i],
-				});
-			}
-			setMainArray(sortedArray);
-			setAble(true);
-		}, (m + 1) * animationSpeed);
+		colorEveryElement(arr, m + 1);
 	};
 
 	// MERGE SORT
@@ -125,17 +132,7 @@ const Visualizer = () => {
 			animationSpeed
 		);
 
-		const newArray = sortedArray.map((val, idx) => ({ val, idx }));
-
-		setTimeout(() => {
-			setMainArray(newArray);
-			const arrayBars = document.getElementsByClassName('arrayBar');
-
-			for (let i = 0; i < arrayLength; i++) {
-				arrayBars[i].style.backgroundColor = SORTED_COLOR;
-			}
-			setAble(true);
-		}, (count + 5) * animationSpeed);
+		colorEveryElement(sortedArray, count + 5);
 	};
 
 	// INSERTION SORT
@@ -175,51 +172,23 @@ const Visualizer = () => {
 			m++;
 		}
 
-		setTimeout(() => {
-			const sortedArray = [];
-			for (let i = 0; i < arr.length; i++) {
-				arrayBars[i].style.backgroundColor = SORTED_COLOR;
-
-				sortedArray.push({
-					idx: i,
-					val: arr[i],
-				});
-			}
-			setMainArray(sortedArray);
-			setAble(true);
-		}, (m + 1) * animationSpeed);
+		colorEveryElement(arr, m + 1);
 	};
 
+	// SELECTION SORT
 	const selectionSortAnimate = () => {
 		setAble(false);
 		const { arr, count } = selectionSort(mainArray, animationSpeed);
-		const newArray = arr.map((val, idx) => ({ val, idx }));
 
-		setTimeout(() => {
-			setMainArray(newArray);
-			const arrayBars = document.getElementsByClassName('arrayBar');
-
-			for (let i = 0; i < arrayLength; i++) {
-				arrayBars[i].style.backgroundColor = SORTED_COLOR;
-			}
-			setAble(true);
-		}, (count + 2) * animationSpeed);
+		colorEveryElement(arr, count + 2);
 	};
 
+	//QUICK SORT
 	const quicksortAnimate = () => {
 		setAble(false);
 		const { arr, count } = quicksort(mainArray, animationSpeed);
-		const newArray = arr.map((val, idx) => ({ val, idx }));
 
-		setTimeout(() => {
-			setMainArray(newArray);
-			const arrayBars = document.getElementsByClassName('arrayBar');
-
-			for (let i = 0; i < arrayLength; i++) {
-				arrayBars[i].style.backgroundColor = SORTED_COLOR;
-			}
-			setAble(true);
-		}, (count + 1) * animationSpeed);
+		colorEveryElement(arr, count + 1);
 	};
 
 	const startSorting = algo => {
