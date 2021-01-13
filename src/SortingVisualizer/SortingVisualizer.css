@@ -24,7 +24,7 @@
 .arrayBar {
 	width: 80px;
 	margin: 0px 1px 2px 1px;
-	transition: height 0.1s;
+	transition: height 0.3s;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
