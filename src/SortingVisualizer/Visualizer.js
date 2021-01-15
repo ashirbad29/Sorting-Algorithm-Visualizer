@@ -9,8 +9,6 @@ import './SortingVisualizer.css';
 
 // CONSTANTS
 const PRIMARY_COLOR = '#dd85e7';
-const ACTIVE_COLOR = '#FFA500';
-const THIRD_COLOR = '#7CFC00';
 const SORTED_COLOR = '#00587a';
 
 // Random Number Genrator
