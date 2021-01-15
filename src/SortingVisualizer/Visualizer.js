@@ -87,41 +87,9 @@ const Visualizer = () => {
 
 	// BUBBLE SORT
 	const bubbleSortAnimate = () => {
-		const { animations, arr } = bubbleSort(mainArray);
-		const arrayBars = document.getElementsByClassName('arrayBar');
-
 		setAble(false);
-		let m = 0;
-		for (let k = 0; k < animations.length; k++) {
-			let i = animations[k].i;
-			let j = animations[k].j;
-
-			setTimeout(() => {
-				arrayBars[i].style.backgroundColor = ACTIVE_COLOR;
-				arrayBars[j].style.backgroundColor = ACTIVE_COLOR;
-			}, m * animationSpeed);
-
-			if (animations[k].swap) {
-				setTimeout(() => {
-					arrayBars[i].style.backgroundColor = THIRD_COLOR;
-					arrayBars[j].style.backgroundColor = THIRD_COLOR;
-
-					// swap the heights
-					let temp = arrayBars[i].style.height;
-					arrayBars[i].style.height = arrayBars[j].style.height;
-					arrayBars[j].style.height = temp;
-				}, (m + 1) * animationSpeed);
-				m++;
-			}
-
-			setTimeout(() => {
-				arrayBars[i].style.backgroundColor = PRIMARY_COLOR;
-				arrayBars[j].style.backgroundColor = PRIMARY_COLOR;
-			}, (m + 1) * animationSpeed);
-			m++;
-		}
-
-		colorEveryElement(arr, m + 1);
+		const { arr, count } = bubbleSort(mainArray, animationSpeed);
+		colorEveryElement(arr, count + 1);
 	};
 
 	// MERGE SORT
@@ -131,55 +99,20 @@ const Visualizer = () => {
 			mainArray,
 			animationSpeed
 		);
-
 		colorEveryElement(sortedArray, count + 5);
 	};
 
 	// INSERTION SORT
 	const insertionSortAnimate = () => {
-		const { animations, arr } = insertionSort(mainArray);
-		const arrayBars = document.getElementsByClassName('arrayBar');
-
 		setAble(false);
-		let m = 0;
-		for (let k = 0; k < animations.length; k++) {
-			let i = animations[k].i;
-			let j = animations[k].j;
-
-			if (!animations[k].swap) {
-				setTimeout(() => {
-					arrayBars[i].style.backgroundColor = ACTIVE_COLOR;
-					arrayBars[j].style.backgroundColor = ACTIVE_COLOR;
-				}, m * animationSpeed);
-			}
-			if (animations[k].swap) {
-				setTimeout(() => {
-					arrayBars[i].style.backgroundColor = THIRD_COLOR;
-					arrayBars[j].style.backgroundColor = THIRD_COLOR;
-
-					// swap the heights
-					let temp = arrayBars[i].style.height;
-					arrayBars[i].style.height = arrayBars[j].style.height;
-					arrayBars[j].style.height = temp;
-				}, (m + 1) * animationSpeed);
-				m++;
-			}
-
-			setTimeout(() => {
-				arrayBars[i].style.backgroundColor = PRIMARY_COLOR;
-				arrayBars[j].style.backgroundColor = PRIMARY_COLOR;
-			}, (m + 1) * animationSpeed);
-			m++;
-		}
-
-		colorEveryElement(arr, m + 1);
+		const { arr, count } = insertionSort(mainArray, animationSpeed);
+		colorEveryElement(arr, count + 1);
 	};
 
 	// SELECTION SORT
 	const selectionSortAnimate = () => {
 		setAble(false);
 		const { arr, count } = selectionSort(mainArray, animationSpeed);
-
 		colorEveryElement(arr, count + 2);
 	};
 
@@ -187,7 +120,6 @@ const Visualizer = () => {
 	const quicksortAnimate = () => {
 		setAble(false);
 		const { arr, count } = quicksort(mainArray, animationSpeed);
-
 		colorEveryElement(arr, count + 1);
 	};
 
