@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { bubbleSort } from '../algorithms/bubblesort';
 import { mergeSortAnimation } from '../algorithms/mergesort';
 import { insertionSort } from '../algorithms/insertion';
 import { selectionSort } from '../algorithms/selectionsort';
+import { bubbleSort } from '../algorithms/bubblesort';
 import { quicksort } from '../algorithms/quicksort';
+import { heapsort } from '../algorithms/heapsort';
 // stylesheet
 import './SortingVisualizer.css';
 
@@ -121,6 +122,12 @@ const Visualizer = () => {
 		colorEveryElement(arr, count + 1);
 	};
 
+	// HEAP SORT
+	const heapsortAnimate = () => {
+		setAble(false);
+		const { arr, count } = heapsort(mainArray, animationSpeed);
+		colorEveryElement(arr, count + 1);
+	};
 	const startSorting = algo => {
 		switch (algo) {
 			case 'bubblesort':
@@ -140,6 +147,9 @@ const Visualizer = () => {
 				break;
 			case 'quicksort':
 				quicksortAnimate();
+				break;
+			case 'heapsort':
+				heapsortAnimate();
 				break;
 			default:
 				mergeSort();
@@ -182,6 +192,7 @@ const Visualizer = () => {
 						<option value='insertionsort'>insertion sort</option>
 						<option value='selectionsort'>selection sort</option>
 						<option value='quicksort'>quick sort</option>
+						<option value='heapsort'>heap sort</option>
 					</select>
 				</div>
 				<button className='button able' onClick={() => startSorting(algo)}>
