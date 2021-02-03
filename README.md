@@ -1,12 +1,20 @@
-# Sorting algorithm visualizer🔥
-Visualize various sorting algorithms <br/>
+# Sorting Algorithm visualizer 🔥
+<img src='https://img.shields.io/twitter/follow/ashirbad_29?label=get%20in%20touch&style=social' />   <img src='https://img.shields.io/github/followers/ashirbad29?style=social' />
+<br/>
+A tool to visualize sorting algorithms built using **ReactJS** <br/>
 Website is live [here](https://sortingvisualizerx.netlify.app/)
-### Tech used
-- React
-- HTML
-- CSS
-### Algorithm currently Supported
-- Merge sort
-- Insertion sort
-- Selection sort
-- Bubble sort
+
+## Features
+:white_check_mark:  Control Visualization Speed<br><br>
+:white_check_mark:  Change array size <br><br>
+:white_check_mark:  Randomize Input<br><br>
+:white_check_mark:  Choose various sorting algorithms<br><br>
+
+## Algorithms to Visualize
+:white_check_mark:  Bubble Sort<br><br>
+:white_check_mark:  Insertion Sort<br><br>
+:white_check_mark:  Selection Sort<br><br>
+:white_check_mark:  Quick Sort <br><br>
+:white_check_mark:  Merge Sort<br><br>
+:white_check_mark:  Heap Sort<br><br>
+
