@@ -1,9 +1,6 @@
+import colors from '../SortingVisualizer/colorCodes';
 import { swap } from './swap';
 export const insertionSort = (tempArr, speed) => {
-	const PRIMARY_COLOR = '#dd85e7';
-	const ACTIVE_COLOR = '#FFA500';
-	const THIRD_COLOR = '#7CFC00';
-
 	let count = 0;
 
 	const arrayBars = document.getElementsByClassName('arrayBar');
@@ -12,8 +9,8 @@ export const insertionSort = (tempArr, speed) => {
 	for (let i = 1; i < arr.length; i++) {
 		// color current comparing value
 		setTimeout(() => {
-			arrayBars[i].style.backgroundColor = ACTIVE_COLOR;
-			arrayBars[i - 1].style.backgroundColor = ACTIVE_COLOR;
+			arrayBars[i].style.backgroundColor = colors.orange;
+			arrayBars[i - 1].style.backgroundColor = colors.orange;
 		}, count++ * speed);
 
 		let j = i;
@@ -21,8 +18,9 @@ export const insertionSort = (tempArr, speed) => {
 			let k = j; /* to avoid es line error */
 
 			setTimeout(() => {
-				if (k !== i) arrayBars[k].style.backgroundColor = THIRD_COLOR;
-				arrayBars[k - 1].style.backgroundColor = THIRD_COLOR;
+				if (k !== i)
+					arrayBars[k].style.backgroundColor = colors.sortedElementColor;
+				arrayBars[k - 1].style.backgroundColor = colors.sortedElementColor;
 
 				let temp = arrayBars[k].style.height;
 				arrayBars[k].style.height = arrayBars[k - 1].style.height;
@@ -32,15 +30,15 @@ export const insertionSort = (tempArr, speed) => {
 			swap(j, j - 1, arr);
 
 			setTimeout(() => {
-				if (k !== i) arrayBars[k].style.backgroundColor = PRIMARY_COLOR;
-				arrayBars[k - 1].style.backgroundColor = PRIMARY_COLOR;
+				if (k !== i) arrayBars[k].style.backgroundColor = colors.primaryColor;
+				arrayBars[k - 1].style.backgroundColor = colors.primaryColor;
 			}, count++ * speed);
 			j--;
 		}
 		// set the color to normal color
 		setTimeout(() => {
-			arrayBars[i].style.backgroundColor = PRIMARY_COLOR;
-			arrayBars[i - 1].style.backgroundColor = PRIMARY_COLOR;
+			arrayBars[i].style.backgroundColor = colors.primaryColor;
+			arrayBars[i - 1].style.backgroundColor = colors.primaryColor;
 		}, count * speed);
 	}
 	return { arr, count };

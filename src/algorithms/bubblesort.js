@@ -1,9 +1,6 @@
-export const bubbleSort = (tempArr, speed) => {
-	const CURR_ITEM = 'cyan';
-	const ACTIVE_COLOR = '#ff2400';
-	const PRIMARY_COLOR = '#dd85e7';
-	const SORTED_COLOR = '#4cbb17';
+import colors from '../SortingVisualizer/colorCodes';
 
+export const bubbleSort = (tempArr, speed) => {
 	const arr = tempArr.map(item => item.val);
 	let count = 0;
 
@@ -14,15 +11,15 @@ export const bubbleSort = (tempArr, speed) => {
 		for (let j = 0; j < arr.length - i - 1; j++) {
 			// colors it up to active
 			setTimeout(() => {
-				arrayBars[j].style.backgroundColor = CURR_ITEM;
-				arrayBars[j + 1].style.backgroundColor = CURR_ITEM;
+				arrayBars[j].style.backgroundColor = colors.cyan;
+				arrayBars[j + 1].style.backgroundColor = colors.cyan;
 			}, count++ * speed);
 
 			if (arr[j] > arr[j + 1]) {
 				// swap the heights
 				setTimeout(() => {
-					arrayBars[j].style.backgroundColor = ACTIVE_COLOR;
-					arrayBars[j + 1].style.backgroundColor = ACTIVE_COLOR;
+					arrayBars[j].style.backgroundColor = colors.pivotActiveColor;
+					arrayBars[j + 1].style.backgroundColor = colors.pivotActiveColor;
 
 					let temp = arrayBars[j].style.height;
 					arrayBars[j].style.height = arrayBars[j + 1].style.height;
@@ -38,15 +35,16 @@ export const bubbleSort = (tempArr, speed) => {
 			}
 			// color back to normal
 			setTimeout(() => {
-				arrayBars[j].style.backgroundColor = PRIMARY_COLOR;
-				arrayBars[j + 1].style.backgroundColor = PRIMARY_COLOR;
+				arrayBars[j].style.backgroundColor = colors.primaryColor;
+				arrayBars[j + 1].style.backgroundColor = colors.primaryColor;
 			}, count++ * speed);
 		}
 		setTimeout(() => {
-			arrayBars[arr.length - i - 1].style.backgroundColor = SORTED_COLOR;
+			arrayBars[arr.length - i - 1].style.backgroundColor =
+				colors.sortedElementColor;
 			if (swapped === false) {
 				for (let x = 0; x < i; x++) {
-					arrayBars[x].style.backgroundColor = SORTED_COLOR;
+					arrayBars[x].style.backgroundColor = colors.sortedElementColor;
 				}
 			}
 		}, count * speed);

@@ -1,9 +1,7 @@
 import { swap } from './swap';
+import colors from '../SortingVisualizer/colorCodes';
+
 let count = 0;
-const PRIMARY_COLOR = '#dd85e7';
-const ACTIVE_COLOR = '#FFA500';
-const THIRD_COLOR = '#ff2400';
-const SORTED_COLOR = '#4cbb17';
 
 const arrayBars = document.getElementsByClassName('arrayBar');
 
@@ -54,8 +52,8 @@ const heapify = (arr, i, n, speed) => {
 		swap(i, largest, arr);
 
 		// color
-		swapHeights(speed, THIRD_COLOR, i, largest);
-		setColor(speed, PRIMARY_COLOR, i, largest);
+		swapHeights(speed, colors.pivotActiveColor, i, largest);
+		setColor(speed, colors.primaryColor, i, largest);
 		heapify(arr, largest, n, speed);
 	}
 };
@@ -72,10 +70,10 @@ const sort = (arr, n, speed) => {
 	// and put them at back
 	for (let i = n - 1; i >= 0; i--) {
 		swap(i, 0, arr);
-		swapHeights(speed, ACTIVE_COLOR, i, 0);
+		swapHeights(speed, colors.orange, i, 0);
 		count += 2;
 
-		setColor(speed, SORTED_COLOR, i);
+		setColor(speed, colors.sortedElementColor, i);
 		heapify(arr, 0, i, speed);
 	}
 };

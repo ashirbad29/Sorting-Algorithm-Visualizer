@@ -1,12 +1,8 @@
+import colors from '../SortingVisualizer/colorCodes';
 import { swap } from './swap';
 
 const arrayBars = document.getElementsByClassName('arrayBar');
 let count = 0;
-const SORTED_COLOR = '#4cbb17';
-const PRIMARY_COLOR = '#dd85e7';
-const PIVOT_COLOR = '#ff2400';
-const CURR_ITEM = '#40E0D0';
-const SECONDARY_COLOR = '#ff00ff';
 
 export const quicksort = (tempArr, animationSpeed) => {
 	const arr = tempArr.map(item => item.val);
@@ -27,7 +23,7 @@ const quicksortHelper = (arr, low, high, speed) => {
 
 	// Colors the element which is in its correct place
 	setTimeout(() => {
-		arrayBars[pivot].style.backgroundColor = SORTED_COLOR;
+		arrayBars[pivot].style.backgroundColor = colors.sortedElementColor;
 	}, count * speed);
 	count++;
 
@@ -40,7 +36,7 @@ const partition = (arr, low, high, speed) => {
 
 	// Colors the current pivot index
 	setTimeout(() => {
-		arrayBars[high].style.backgroundColor = PIVOT_COLOR;
+		arrayBars[high].style.backgroundColor = colors.pivotActiveColor;
 	}, count * speed);
 	count++;
 
@@ -48,20 +44,20 @@ const partition = (arr, low, high, speed) => {
 	for (let j = low; j < high; j++) {
 		// animate the curr traversing element
 		setTimeout(() => {
-			arrayBars[j].style.backgroundColor = CURR_ITEM;
+			arrayBars[j].style.backgroundColor = colors.cyan;
 		}, count * speed);
 		count += 2;
 
 		// color primary to the curr traversing element
 		setTimeout(() => {
-			arrayBars[j].style.backgroundColor = PRIMARY_COLOR;
+			arrayBars[j].style.backgroundColor = colors.primaryColor;
 		}, count * speed);
 		count++;
 
 		if (pivotElement > arr[j]) {
 			let tempI = i;
 			setTimeout(() => {
-				arrayBars[tempI].style.backgroundColor = SECONDARY_COLOR;
+				arrayBars[tempI].style.backgroundColor = colors.orange;
 
 				let temp = arrayBars[tempI].style.height;
 				arrayBars[tempI].style.height = arrayBars[j].style.height;
@@ -70,7 +66,7 @@ const partition = (arr, low, high, speed) => {
 			count++;
 
 			setTimeout(() => {
-				arrayBars[tempI].style.backgroundColor = PRIMARY_COLOR;
+				arrayBars[tempI].style.backgroundColor = colors.primaryColor;
 			}, (count + 1) * speed);
 			count++;
 
@@ -81,7 +77,7 @@ const partition = (arr, low, high, speed) => {
 
 	// resets the color of pivot element to primary
 	setTimeout(() => {
-		arrayBars[high].style.backgroundColor = PRIMARY_COLOR;
+		arrayBars[high].style.backgroundColor = colors.primaryColor;
 	}, count * speed);
 	count++;
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import colors from './colorCodes';
 import { mergeSortAnimation } from '../algorithms/mergesort';
 import { insertionSort } from '../algorithms/insertion';
 import { selectionSort } from '../algorithms/selectionsort';
@@ -9,8 +10,6 @@ import { heapsort } from '../algorithms/heapsort';
 import './SortingVisualizer.css';
 
 // CONSTANTS
-const PRIMARY_COLOR = '#dd85e7';
-const SORTED_COLOR = '#00587a';
 
 // Random Number Genrator
 const generateRandomNumber = (i, j) => {
@@ -57,9 +56,8 @@ const Visualizer = () => {
 			};
 			tempArr.push(item);
 			if (document.getElementsByClassName('arrayBar')[i] != null) {
-				document.getElementsByClassName('arrayBar')[
-					i
-				].style.backgroundColor = PRIMARY_COLOR;
+				document.getElementsByClassName('arrayBar')[i].style.backgroundColor =
+					colors.primaryColor;
 			}
 		}
 		if (able) setMainArray(tempArr);
@@ -70,9 +68,8 @@ const Visualizer = () => {
 		setTimeout(() => {
 			const sortedArray = [];
 			for (let i = 0; i < arr.length; i++) {
-				document.getElementsByClassName('arrayBar')[
-					i
-				].style.backgroundColor = SORTED_COLOR;
+				document.getElementsByClassName('arrayBar')[i].style.backgroundColor =
+					colors.afterSortingColor;
 
 				sortedArray.push({
 					idx: i,
@@ -166,7 +163,7 @@ const Visualizer = () => {
 							className='arrayBar'
 							style={{
 								height: `${item.val}px`,
-								backgroundColor: PRIMARY_COLOR,
+								backgroundColor: colors.primaryColor,
 							}}
 							key={item.idx}
 						>
