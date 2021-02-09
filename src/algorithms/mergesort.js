@@ -1,3 +1,5 @@
+import colors from '../SortingVisualizer/colorCodes';
+
 let count = 0;
 
 export const mergeSortAnimation = (tempArr, animationSpeed) => {
@@ -40,16 +42,16 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			aux.push(left[li]);
 			let i = li;
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.backgroundColor = colors.cyan;
 				arrayBars[barIdx].style.height = `${left[i]}px`;
 			}, counter * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'red';
+				arrayBars[barIdx].style.backgroundColor = colors.pivotActiveColor;
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
+				arrayBars[barIdx].style.backgroundColor = colors.primaryColor;
 			}, (counter + 1.5) * animationSpeed);
 			li++;
 		} else {
@@ -57,16 +59,16 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			let i = ri;
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.backgroundColor = colors.cyan;
 				arrayBars[barIdx].style.height = `${right[i]}px`;
 			}, counter * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'red';
+				arrayBars[barIdx].style.backgroundColor = colors.pivotActiveColor;
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
+				arrayBars[barIdx].style.backgroundColor = colors.primaryColor;
 			}, (counter + 1.5) * animationSpeed);
 			ri++;
 		}
@@ -83,16 +85,16 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			let counter = count;
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.backgroundColor = colors.cyan;
 				arrayBars[barIdx].style.height = `${right[i]}px`;
 			}, counter * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'red';
+				arrayBars[barIdx].style.backgroundColor = colors.pivotActiveColor;
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
+				arrayBars[barIdx].style.backgroundColor = colors.primaryColor;
 			}, (counter + 1.5) * animationSpeed);
 			ri++;
 			count++;
@@ -106,16 +108,16 @@ const mergesort = (arr, low, high, animationSpeed) => {
 			let counter = count;
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'cyan';
+				arrayBars[barIdx].style.backgroundColor = colors.cyan;
 				arrayBars[barIdx].style.height = `${left[i]}px`;
 			}, counter * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = 'red';
+				arrayBars[barIdx].style.backgroundColor = colors.pivotActiveColor;
 			}, (counter + 1) * animationSpeed);
 
 			setTimeout(() => {
-				arrayBars[barIdx].style.backgroundColor = '#dd85e7';
+				arrayBars[barIdx].style.backgroundColor = colors.primaryColor;
 			}, (counter + 1.5) * animationSpeed);
 			li++;
 			k++;
@@ -124,16 +126,3 @@ const mergesort = (arr, low, high, animationSpeed) => {
 	}
 	return aux;
 };
-
-// function mergeSort(arr, start, end, auxiliaryArray, animations) {
-// 	if (start >= end) return;
-// 	const middle = (start + end) / 2;
-
-// 	mergeSort(arr, start, middle, auxiliaryArray, animations);
-// 	mergeSort(arr, middle + 1, end, auxiliaryArray, animations);
-// 	merge(arr, start, middle, end, auxiliaryArray, animations);
-// }
-
-// function merge(arr, start, middle, end, auxiliaryArray, animations) {
-// 	// do some work
-// }
