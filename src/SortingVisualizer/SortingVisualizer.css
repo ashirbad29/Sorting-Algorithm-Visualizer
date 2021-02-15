@@ -50,7 +50,6 @@
 	color: #fff;
 	font-weight: 700;
 	font-size: 1rem;
-	font-family: 'Helvetica Neue', Arial, sans-serif;
 	cursor: pointer;
 }
 
@@ -63,7 +62,7 @@
 	min-width: 200px;
 	height: 100%;
 	min-height: 500px;
-	padding: 2vw;
+	padding: 0 1.5vw 0 1.5vw;
 	background-color: #00303f;
 	display: flex;
 	flex-direction: column;
@@ -104,7 +103,6 @@ header {
 	background-color: inherit;
 	color: #e7d9ea;
 	font-size: larger;
-	font-family: 'Helvetica Neue', Arial, sans-serif;
 	text-align: center;
 	line-height: 2rem;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import colors from './colorCodes';
+import GithubIcon from '../Icons/GithubIcon';
 import { mergeSortAnimation } from '../algorithms/mergesort';
 import { insertionSort } from '../algorithms/insertion';
 import { selectionSort } from '../algorithms/selectionsort';
@@ -8,8 +9,6 @@ import { quicksort } from '../algorithms/quicksort';
 import { heapsort } from '../algorithms/heapsort';
 // stylesheet
 import './SortingVisualizer.css';
-
-// CONSTANTS
 
 // Random Number Genrator
 const generateRandomNumber = (i, j) => {
@@ -174,7 +173,7 @@ const Visualizer = () => {
 			</div>
 			<div className='sidebar'>
 				<header>
-					Sorting algorithm <br /> Visualizer
+					Sorting Algorithm <br /> Visualizer
 				</header>
 				<div className='select-box able'>
 					<label htmlFor='algo'>select algorithm</label>
@@ -225,6 +224,8 @@ const Visualizer = () => {
 						max='499'
 					/>
 				</div>
+
+				<GithubIcon className={'github-icon'} />
 			</div>
 		</div>
 	);
