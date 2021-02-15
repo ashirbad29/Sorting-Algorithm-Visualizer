@@ -1,5 +1,6 @@
 # Sorting Algorithm visualizer 🔥
 <img src='https://img.shields.io/twitter/follow/ashirbad_29?label=get%20in%20touch&style=social' />   <img src='https://img.shields.io/github/followers/ashirbad29?style=social' />
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7a70ca44-0cda-4189-bc0a-e7a13a4d7fbf/deploy-status)](https://app.netlify.com/sites/sortingvisualizerx/deploys)
 <br>
 <img src='https://media.giphy.com/media/zLYp5uoqYhPVHjN1Mh/giphy.gif'> <br>
 A tool to visualize sorting algorithms built using **ReactJS** <br/>
