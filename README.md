@@ -20,3 +20,18 @@ Website is live [here](https://sortingvisualizerx.netlify.app/)
 :white_check_mark:  Merge Sort<br><br>
 :white_check_mark:  Heap Sort<br><br>
 
+## Set it up locally 🚀
+- clone the repo<br>
+`git https://github.com/ashirbad29/Sorting-Algorithm-Visualizer.git`
+<br>
+
+- Navigate to that folder<br>
+`cd Sorting-Algorithm-Visualizer`
+<br>
+
+- install required dependencies<br>
+`npm install`
+<br>
+
+- start the project locally<br>
+`npm start`
